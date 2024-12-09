@@ -18,6 +18,7 @@ import java.util.Scanner;
 
 public class ContactTracer {
     public static final String DEFAULT_NAME = "simple0.input";
+    public static boolean[] visited;
 
     public static void main(String[] args) {
 
@@ -44,6 +45,7 @@ public class ContactTracer {
 
             // Get the number of names (IDs)
             int n = Integer.parseInt(sc.nextLine());
+            visited = new boolean[n];
 
             for (int i = 0; i < n; i++) {
                 String id = sc.nextLine();
@@ -106,7 +108,6 @@ public class ContactTracer {
     // Breadth first search method
     public static int BFS(int distance, int startIdNum, List<List<Integer>> graph, int n, int numInfected){
         Queue<Integer> queue = new LinkedList<>();
-        boolean[] visited = new boolean[n];
 
         int currentId = startIdNum; // Sets the current id to the starting id 
         int numOfNeighbors = graph.get(currentId).size(); // Gets number of neighbors for each id
