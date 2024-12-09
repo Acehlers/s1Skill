@@ -19,8 +19,6 @@ public class ContactTracer {
 
     public static void main(String[] args) {
 
-        Hashtable<String,Integer> table = new Hashtable<>();
-        ArrayList<String> graph = new ArrayList<String>();
         String fileName = DEFAULT_NAME;
 
         if (args.length >= 1) {
@@ -34,6 +32,10 @@ public class ContactTracer {
     // Read in the problem and produce the output
     public static void processFile(String fileName) {
         try {
+
+            Hashtable<String,Integer> table = new Hashtable<>();
+            ArrayList<String> graph = new ArrayList<String>();
+    
             String[] line;
 
             // Open up the file for parsing
@@ -48,6 +50,8 @@ public class ContactTracer {
 
                 // You will want to store this ID. 
                 // Using a Hashmap, I would map ID to i, call it the id number.
+                table.put(id,i);
+
             }
 
             // You will probably want to create an undirected graph G with n nodes
