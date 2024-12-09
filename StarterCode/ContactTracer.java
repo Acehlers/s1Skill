@@ -101,6 +101,9 @@ public class ContactTracer {
             // exposed individuals.
 
             for (int i = 0; i < numInfected; i++){
+                visited[table.get(infected.get(i))] = true;
+            }
+            for (int i = 0; i < numInfected; i++){
                 System.out.println("Current exposed: " + BFS(distance, table.get(infected.get(i)), graph, n, numInfected));
             }
 
