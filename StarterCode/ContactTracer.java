@@ -1,6 +1,6 @@
 /**************************
  * Author: Christian Duncan (Starting Code)
- * Modified by: Grant Foody, Andrew Ehlers
+ * Modified by: Andrew Ehlers, Grant Foody
  * 
  * Fall 2024, CSC215
  * Given a graph of contact points between individuals, a list of infected individuals, 
@@ -24,6 +24,7 @@ public class ContactTracer {
 
         processFile(fileName);
     }
+
 
     // Read in the problem and produce the output
     public static void processFile(String fileName) {
