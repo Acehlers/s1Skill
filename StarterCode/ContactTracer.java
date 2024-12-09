@@ -127,6 +127,16 @@ public class ContactTracer {
         int exposed = 0; // Number of people exposed, starts with only those infected
 
         visited[startIdNum] = true;
+        // queue.add(startIdNum);
+
+        // // Iterate over the queue
+        // while(!queue.isEmpty()){
+
+        //     int curr = queue.poll();
+        //     System.out.print(curr + " ");
+
+            
+        // }
 
         for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
             if(!visited[graph.get(currentId).get(i)]){
