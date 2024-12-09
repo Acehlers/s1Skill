@@ -93,16 +93,26 @@ public class ContactTracer {
             // Use the Graph, infected list, and distance to get the result and print the number of
             // exposed individuals.
 
+            for (int i = 0; i < numInfected; i++){
+                BFS(distance, table.get(infected.get(i)), graph); 
+            }
+
 
         } catch (IOException e) {
             System.err.println("Error reading in the graph: " + e.getMessage());
         }
     }
 
-    public void BFS(int distance, int idNum){
+    // Breadth first search method
+    public static void BFS(int distance, int startIdNum, List<List<Integer>> graph){
         Queue<Integer> queue = new LinkedList<>();
-        for (){
-            
+
+        int currentId = startIdNum; // Sets the current id to the starting id 
+
+        int numOfNeighbors = graph.get(currentId).size(); // Gets number of neighbors for each id
+
+        for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
+            queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
         }
     }
 
