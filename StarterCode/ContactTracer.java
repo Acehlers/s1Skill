@@ -10,12 +10,17 @@
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
 import java.util.Scanner;
 
 public class ContactTracer {
     public static final String DEFAULT_NAME = "simple0.input";
 
     public static void main(String[] args) {
+
+        Hashtable table = new Hashtable<>();
+        ArrayList graph = new ArrayList<>();
         String fileName = DEFAULT_NAME;
 
         if (args.length >= 1) {
