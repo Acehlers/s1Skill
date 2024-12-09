@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
+import javax.sound.midi.SysexMessage;
+
 public class ContactTracer {
     public static final String DEFAULT_NAME = "IO/simple0.input";
     public static boolean[] visited;
@@ -116,13 +118,14 @@ public class ContactTracer {
 
         int currentId = startIdNum; // Sets the current id to the starting id 
         int numOfNeighbors = graph.get(currentId).size(); // Gets number of neighbors for each id
+        System.out.println("Number of neighbors for node " + currentId + " = " + numOfNeighbors);
         int exposed = numInfected; // Number of people exposed, starts with only those infected
 
         for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
             if(!visited[i]){
                 queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
                 exposed++; // Adds person to the list of exposed
-                System.out.println("Node " + table.get(i) + " not visited, visiting. ");
+                System.out.println("Node " + currentId + " not visited, visiting. ");
             } else {
                 System.out.println("Node already visited, skipping.");
             }
