@@ -94,11 +94,14 @@ public class ContactTracer {
             // Now process the information to get the results...
             // Use the Graph, infected list, and distance to get the result and print the number of
             // exposed individuals.
-
+            int exposed = 0;
             for (int i = 0; i < numInfected; i++){
-                BFS(distance, table.get(infected.get(i)), graph, n, numInfected); 
+                exposed += BFS(distance, table.get(infected.get(i)), graph, n, numInfected); 
             }
 
+            numInfected =+ exposed;
+
+            System.out.println(numInfected);
 
         } catch (IOException e) {
             System.err.println("Error reading in the graph: " + e.getMessage());
@@ -117,7 +120,7 @@ public class ContactTracer {
             if(!visited[i]){
                 queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
                 exposed++; // Adds person to the list of exposed
-                System.out.println("Node not visited, visiting.");
+                System.out.println("Node not visited, visiting. ");
             } else {
                 System.out.println("Node already visited, skipping.");
             }
