@@ -122,14 +122,14 @@ public class ContactTracer {
         int exposed = numInfected; // Number of people exposed, starts with only those infected
 
         for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
-            if(!visited[i]){
+            if(!visited[graph.get(currentId).get(i)]){
                 queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
                 exposed++; // Adds person to the list of exposed
                 System.out.println("Node " + graph.get(currentId).get(i) + " not visited, visiting. ");
             } else {
                 System.out.println("Node " + graph.get(currentId).get(i) + " already visited, skipping.");
             }
-            visited[i] = true;
+            visited[graph.get(currentId).get(i)] = true;
         }
 
         return exposed;
