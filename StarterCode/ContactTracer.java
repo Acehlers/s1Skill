@@ -125,9 +125,9 @@ public class ContactTracer {
             if(!visited[i]){
                 queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
                 exposed++; // Adds person to the list of exposed
-                System.out.println("Node " + currentId + " not visited, visiting. ");
+                System.out.println("Node " + graph.get(currentId).get(i) + " not visited, visiting. ");
             } else {
-                System.out.println("Node already visited, skipping.");
+                System.out.println("Node " + graph.get(currentId).get(i) + " already visited, skipping.");
             }
             visited[i] = true;
         }
