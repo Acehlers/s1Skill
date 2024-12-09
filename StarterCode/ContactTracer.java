@@ -19,8 +19,8 @@ public class ContactTracer {
 
     public static void main(String[] args) {
 
-        Hashtable table = new Hashtable<>();
-        ArrayList graph = new ArrayList<>();
+        Hashtable<String,Integer> table = new Hashtable<>();
+        ArrayList<String> graph = new ArrayList<String>();
         String fileName = DEFAULT_NAME;
 
         if (args.length >= 1) {
