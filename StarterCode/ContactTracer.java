@@ -34,7 +34,7 @@ public class ContactTracer {
         try {
 
             Hashtable<String,Integer> table = new Hashtable<>();
-            ArrayList<String> graph = new ArrayList<String>();
+            //ArrayList<String> graph = new ArrayList<String>();
     
             String[] line;
 
@@ -58,6 +58,8 @@ public class ContactTracer {
 
             // You will probably want to create an undirected graph G with n nodes
             // Initially with no edges but add a method to add an edge between two nodes
+            List<List<Integer>> graph = new ArrayList<>(n);
+            for (int i = 0; i < n; i++) graph.add(new ArrayList<>());
 
             // Get the various connections
             int m = Integer.parseInt(sc.nextLine());
