@@ -52,6 +52,8 @@ public class ContactTracer {
                 // Using a Hashmap, I would map ID to i, call it the id number.
                 table.put(id,i);
 
+                System.out.println(table.get(id));
+
             }
 
             // You will probably want to create an undirected graph G with n nodes
