@@ -94,7 +94,7 @@ public class ContactTracer {
             // exposed individuals.
 
             for (int i = 0; i < numInfected; i++){
-                BFS(distance, table.get(infected.get(i)), graph, n); 
+                BFS(distance, table.get(infected.get(i)), graph, n, numInfected); 
             }
 
 
@@ -104,7 +104,7 @@ public class ContactTracer {
     }
 
     // Breadth first search method
-    public static void BFS(int distance, int startIdNum, List<List<Integer>> graph, int n){
+    public static int BFS(int distance, int startIdNum, List<List<Integer>> graph, int n, int numInfected){
         Queue<Integer> queue = new LinkedList<>();
         boolean[] visited = new boolean[n];
 
@@ -114,8 +114,13 @@ public class ContactTracer {
 
         for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
             queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
+            if(!visited[i]){
+                numInfected++;
+            }
             visited[i] = true;
         }
+
+        return numInfected;
     }
 
 }
