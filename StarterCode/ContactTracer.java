@@ -75,7 +75,10 @@ public class ContactTracer {
                 System.out.println("DEBUG: Contact between " + idA + " and " + idB);
                 // You might want to get the id number of idA and idB from the Hashmap
                 // Then add the edge between idA and idB to the graph
+                graph.get(table.get(idA)).add(table.get(idB));
+                graph.get(table.get(idB)).add(table.get(idA));
             }
+            System.out.println(graph.toString());
 
             // Get how many contacts have been infected and how far to report exposure from
             // an infected individual
