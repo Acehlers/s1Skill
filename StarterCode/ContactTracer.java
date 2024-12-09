@@ -51,7 +51,6 @@ public class ContactTracer {
                 // You will want to store this ID. 
                 // Using a Hashmap, I would map ID to i, call it the id number.
                 table.put(id,i);
-                idList.add(id);
             }
             System.out.println(table.toString());
             System.out.println(idList.toString());
