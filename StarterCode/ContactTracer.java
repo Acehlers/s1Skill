@@ -110,7 +110,7 @@ public class ContactTracer {
                 // System.out.println("Current exposed: " + BFS(distance, table.get(infected.get(i)), graph, n, numInfected));
             }
 
-            System.out.println("TOTAL EXPOSED: " + (numInfected + exposedIncrement));
+            System.out.println("TOTAL EXPOSED: " + (exposedIncrement));
 
         } catch (IOException e) {
             System.err.println("Error reading in the graph: " + e.getMessage());
@@ -119,26 +119,42 @@ public class ContactTracer {
 
     // Breadth first search method
     public static int BFS(int distance, int startIdNum, List<List<Integer>> graph, int n, int numInfected){
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{startIdNum, 0}); 
 
         int currentId = startIdNum; // Sets the current id to the starting id 
         int numOfNeighbors = graph.get(currentId).size(); // Gets number of neighbors for each id
-        System.out.println("Number of neighbors for node " + currentId + " = " + numOfNeighbors);
+        //System.out.println("Number of neighbors for node " + currentId + " = " + numOfNeighbors);
         int exposed = 0; // Number of people exposed, starts with only those infected
 
         visited[startIdNum] = true;
         // queue.add(startIdNum);
 
-        // // Iterate over the queue
-        // while(!queue.isEmpty()){
+        // Iterate over the queue
+        while(!queue.isEmpty()){
 
-        //     int curr = queue.poll();
-        //     System.out.print(curr + " ");
+            int curr[] = queue.poll();
+            //System.out.print(curr + " ");
+            currentId = curr[0];
+            int currentDistance = curr[1];
 
-            
-        // }
+            exposed ++;
 
-        for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
+            // Stop exploring further if the distance is reached
+            if (currentDistance >= distance) {
+                continue;
+            }
+
+            // Explore neighbors
+            for (int neighbor : graph.get(currentId)) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.add(new int[]{neighbor, currentDistance + 1});
+                }
+            }
+        }
+
+       /*  for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
             if(!visited[graph.get(currentId).get(i)]){
                 queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
                 exposed++; // Adds person to the list of exposed
@@ -149,7 +165,7 @@ public class ContactTracer {
                 System.out.println("Current exposed (for loop): " + exposed);
             }
             visited[graph.get(currentId).get(i)] = true;
-        }
+        } */
         
         return exposed;
     }
