@@ -95,13 +95,12 @@ public class ContactTracer {
             // Use the Graph, infected list, and distance to get the result and print the number of
             // exposed individuals.
             int exposed = 0;
+
             for (int i = 0; i < numInfected; i++){
                 exposed += BFS(distance, table.get(infected.get(i)), graph, n, numInfected); 
             }
 
-            numInfected =+ exposed;
-
-            System.out.println(numInfected);
+            System.out.println(exposed);
 
         } catch (IOException e) {
             System.err.println("Error reading in the graph: " + e.getMessage());
