@@ -100,12 +100,17 @@ public class ContactTracer {
             // Use the Graph, infected list, and distance to get the result and print the number of
             // exposed individuals.
 
+            int exposedIncrement = 0;
+
             for (int i = 0; i < numInfected; i++){
                 visited[table.get(infected.get(i))] = true;
             }
             for (int i = 0; i < numInfected; i++){
-                System.out.println("Current exposed: " + BFS(distance, table.get(infected.get(i)), graph, n, numInfected));
+                exposedIncrement =+ BFS(distance, table.get(infected.get(i)), graph, n, numInfected);
+                // System.out.println("Current exposed: " + BFS(distance, table.get(infected.get(i)), graph, n, numInfected));
             }
+
+            System.out.println("TOTAL EXPOSED: " + (numInfected + exposedIncrement));
 
         } catch (IOException e) {
             System.err.println("Error reading in the graph: " + e.getMessage());
@@ -119,7 +124,7 @@ public class ContactTracer {
         int currentId = startIdNum; // Sets the current id to the starting id 
         int numOfNeighbors = graph.get(currentId).size(); // Gets number of neighbors for each id
         System.out.println("Number of neighbors for node " + currentId + " = " + numOfNeighbors);
-        int exposed = numInfected; // Number of people exposed, starts with only those infected
+        int exposed = 0; // Number of people exposed, starts with only those infected
 
         visited[startIdNum] = true;
 
