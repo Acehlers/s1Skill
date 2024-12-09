@@ -34,7 +34,7 @@ public class ContactTracer {
         try {
 
             Hashtable<String,Integer> table = new Hashtable<>();
-            //ArrayList<String> graph = new ArrayList<String>();
+            ArrayList<String> idList = new ArrayList<String>();
     
             String[] line;
 
@@ -51,10 +51,13 @@ public class ContactTracer {
                 // You will want to store this ID. 
                 // Using a Hashmap, I would map ID to i, call it the id number.
                 table.put(id,i);
+                idList.add(id);
 
                 System.out.println(table.get(id));
 
             }
+            System.out.println(table.toString());
+            System.out.println(idList.toString());
 
             // You will probably want to create an undirected graph G with n nodes
             // Initially with no edges but add a method to add an edge between two nodes
