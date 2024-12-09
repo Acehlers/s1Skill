@@ -53,7 +53,6 @@ public class ContactTracer {
                 table.put(id,i);
             }
             System.out.println(table.toString());
-            System.out.println(idList.toString());
 
             // You will probably want to create an undirected graph G with n nodes
             // Initially with no edges but add a method to add an edge between two nodes
