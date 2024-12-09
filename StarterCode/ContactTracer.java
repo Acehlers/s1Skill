@@ -109,18 +109,21 @@ public class ContactTracer {
         boolean[] visited = new boolean[n];
 
         int currentId = startIdNum; // Sets the current id to the starting id 
-
         int numOfNeighbors = graph.get(currentId).size(); // Gets number of neighbors for each id
+        int exposed = numInfected; // Number of people exposed, starts with only those infected
 
         for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
             if(!visited[i]){
                 queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
-                numInfected++;
+                exposed++; // Adds person to the list of exposed
+                System.out.println("Node not visited, visiting.");
+            } else {
+                System.out.println("Node already visited, skipping.");
             }
             visited[i] = true;
         }
 
-        return numInfected;
+        return exposed;
     }
 
 }
