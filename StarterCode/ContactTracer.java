@@ -102,7 +102,7 @@ public class ContactTracer {
             int exposed = 0;
 
             for (int i = 0; i < numInfected; i++){
-                exposed += BFS(distance, table.get(infected.get(i)), graph, n, numInfected); 
+                System.out.println("Current exposed: " + BFS(distance, table.get(infected.get(i)), graph, n, numInfected));
             }
 
             System.out.println(exposed);
@@ -121,6 +121,8 @@ public class ContactTracer {
         System.out.println("Number of neighbors for node " + currentId + " = " + numOfNeighbors);
         int exposed = numInfected; // Number of people exposed, starts with only those infected
 
+        visited[startIdNum] = true;
+
         for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
             if(!visited[graph.get(currentId).get(i)]){
                 queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
@@ -131,7 +133,7 @@ public class ContactTracer {
             }
             visited[graph.get(currentId).get(i)] = true;
         }
-
+        
         return exposed;
     }
 
