@@ -113,8 +113,8 @@ public class ContactTracer {
         int numOfNeighbors = graph.get(currentId).size(); // Gets number of neighbors for each id
 
         for (int i = 0; i < numOfNeighbors; i++){ // For all of the current node's neighbors:
-            queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
             if(!visited[i]){
+                queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
                 numInfected++;
             }
             visited[i] = true;
