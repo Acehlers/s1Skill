@@ -17,8 +17,10 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class ContactTracer {
-    public static final String DEFAULT_NAME = "simple0.input";
+    public static final String DEFAULT_NAME = "IO/simple0.input";
     public static boolean[] visited;
+
+    public static Hashtable<String,Integer> table;
 
     public static void main(String[] args) {
 
@@ -36,7 +38,8 @@ public class ContactTracer {
     public static void processFile(String fileName) {
         try {
 
-            Hashtable<String,Integer> table = new Hashtable<>();
+            // Hashtable<String,Integer> table = new Hashtable<>();
+            table = new Hashtable<>();
     
             String[] line;
 
@@ -119,7 +122,7 @@ public class ContactTracer {
             if(!visited[i]){
                 queue.add(graph.get(currentId).get(i)); // Add neighbor to the queue
                 exposed++; // Adds person to the list of exposed
-                System.out.println("Node not visited, visiting. ");
+                System.out.println("Node " + table.get(i) + " not visited, visiting. ");
             } else {
                 System.out.println("Node already visited, skipping.");
             }
