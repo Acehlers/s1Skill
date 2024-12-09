@@ -11,7 +11,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class ContactTracer {
@@ -91,8 +93,17 @@ public class ContactTracer {
             // Use the Graph, infected list, and distance to get the result and print the number of
             // exposed individuals.
 
+
         } catch (IOException e) {
             System.err.println("Error reading in the graph: " + e.getMessage());
         }
     }
+
+    public void BFS(int distance, int idNum){
+        Queue<Integer> queue = new LinkedList<>();
+        for (){
+            
+        }
+    }
+
 }
