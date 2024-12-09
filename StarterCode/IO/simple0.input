@@ -1,0 +1,32 @@
+11
+Alice
+Bob
+Clara
+David
+Eve
+Fred
+Georgia
+Heath
+Ingrid
+Jason
+Kathy
+16
+Bob Alice
+Alice Clara
+Alice David
+Bob David
+Eve Bob
+Clara David
+Georgia Clara
+Fred Clara
+David Fred
+Eve David
+David Georgia
+Fred Heath
+Heath Georgia
+Ingrid Georgia
+Ingrid Kathy
+Jason Heath
+2 2
+Bob
+Alice
