@@ -34,7 +34,6 @@ public class ContactTracer {
         try {
 
             Hashtable<String,Integer> table = new Hashtable<>();
-            ArrayList<String> idList = new ArrayList<String>();
     
             String[] line;
 
